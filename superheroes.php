@@ -62,12 +62,7 @@ $superheroes = [
       "biography" => "Notably powerful, Wanda Maximoff has fought both against and with the Avengers, attempting to hone her abilities and do what she believes is right to help the world.",
   ], 
 ];
-//foreach ($superheroes as $superhero){
-//    if ($superhero['name'] == "Wanda Maximoff") {
-//
-//       echo $superhero['name'];
-//    } 
-//}
+
 
 ?>
 
