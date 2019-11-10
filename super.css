@@ -38,14 +38,12 @@
 
 
 #content{
-/*    grid-area: content1;*/
     margin-top: 5%;
     margin-left: 25%;
    margin-right: 15%;
     height:100%;
     font-size:20px;
-    top: 70px; /* Header Height */
-    bottom: 80px; /* Footer Height */
+   
 }
  
 

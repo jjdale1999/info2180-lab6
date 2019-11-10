@@ -63,22 +63,21 @@ $superheroes = [
   ], 
 ];
 
-
 ?>
 
 <ul>
-    <?php  if (isset($_POST)): ?>
+    <?php  if (isset($_GET)): ?>
       <H2> RESULTS</H2>
             <hr>
         <?php foreach ($superheroes as $superhero): ?>
-            <?php if ($superhero['name'] ==  $_POST["searchby"]  or $superhero['alias'] ==  $_POST["searchby"]): ?>
+            <?php if ($superhero['name'] ==  $_GET["searchby"]  or $superhero['alias'] ==  $_GET["searchby"]): ?>
                     <h3><?= $superhero['alias']; ?></h3>
                     <h4>A.K.A <?= $superhero['name']; ?></h4>
                     <p><?= $superhero['biography']; ?></p>
    
                     <?php break; ?>
             
-            <?php elseif ($_POST["searchby"] == ""): ?>
+            <?php elseif ($_GET["searchby"] == ""): ?>
                 <?php foreach ($superheroes as $superheros): ?>
                     <li><?= $superheros['alias']; ?></li>
                     
