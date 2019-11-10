@@ -29,7 +29,14 @@ function loadrequest()
             }
         };
 
-        const data = "searchby=" + document.getElementById("searchby").value;
+        function converttoupper (txt){
+            if(txt.split(" ").length>1){
+                return txt.split(" ")[0].charAt(0).toUpperCase() + txt.split(" ")[0].substr(1).toLowerCase()+ " "+txt.split(" ")[1].charAt(0).toUpperCase() + txt.split(" ")[1].substr(1).toLowerCase();
+            }else{
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+        }
+        const data = "searchby=" + converttoupper(document.getElementById("searchby").value);
         httpRequest.send(data);
 
     }
