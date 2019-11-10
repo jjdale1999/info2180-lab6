@@ -1,25 +1,39 @@
-window.onload= function(){
+window.onload= function()
+{
     loadrequest();
 }
-function loadrequest(){
-    var httpRequest = new XMLHttpRequest();
-var url = "superheroes.php";
-document.getElementById("search").onclick= function(){
-    httpRequest.onreadystatechange = printphp;
-httpRequest.open('GET', url);
-httpRequest.send();
-}
+function loadrequest()
+{
+    
+   
+    document.getElementById("search").onclick= function()
+    {
+        var httpRequest = new XMLHttpRequest();
+        var url = "superheroes.php";
+        httpRequest.open('POST', url);
+        event.preventDefault();
+        httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        httpRequest.onreadystatechange = function()
+        {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) 
+            {
+                if (httpRequest.status === 200) 
+                {
+                    
+                        var response = httpRequest.responseText;
+                    
+                    document.getElementById("result").innerHTML= response;
+                    
+                    
+                 } 
+            }
+        };
 
-function printphp() {
-if (httpRequest.readyState === XMLHttpRequest.DONE) {
- if (httpRequest.status === 200) {
- var response = httpRequest.responseText;
- 
- alert(response);
- } else {
- alert('There was a problem with the request.');
- }
-}
-}
-}
+        const data = "searchby=" + document.getElementById("searchby").value;
+        httpRequest.send(data);
 
+    }
+    
+    
+
+}
